@@ -6,7 +6,6 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { MessageCircleCode } from "lucide-react";
 import Messages from "./Messages";
-import axiosInstance from "@/lib/axiosInstance";
 import { setMessages } from "@/redux/chatSlice";
 import axios from "axios";
 
