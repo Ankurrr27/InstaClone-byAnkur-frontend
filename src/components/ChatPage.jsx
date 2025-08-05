@@ -22,7 +22,7 @@ const ChatPage = () => {
   const sendMessageHandler = async (receiverId) => {
     try {
       const res = await axios.post(
-        `https://insta-clone-by-ankur-backend.vercel.app/api/v1/message/send/${receiverId}`,
+        `https://instaclone-byankur-backend.onrender.com/api/v1/message/send/${receiverId}`,
         { textMessage },
         {
           headers: {

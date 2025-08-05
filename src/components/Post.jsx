@@ -34,8 +34,8 @@ const Post = ({ post }) => {
   const likeOrDislikeHandler = async () => {
     try {
       const action = liked ? "dislike" : "like";
-      const res = await axiosInstance.get(
-        `/post/${post._id}/${action}`,
+      const res = await axios.get(
+        `https://instaclone-byankur-backend.onrender.com/post/${post._id}/${action}`,
         { withCredentials: true }
       );
 

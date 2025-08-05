@@ -28,7 +28,7 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://insta-clone-by-ankur-backend.vercel.app/api/v1/user/register",
+        "https://instaclone-byankur-backend.onrender.com/api/v1/user/register",
         input,
         {
           headers: {
