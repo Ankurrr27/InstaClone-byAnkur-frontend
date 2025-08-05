@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { readFileAsDataURL } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import axiosInstance from "@/lib/axiosInstance";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "@/redux/postSlice";
 
@@ -37,8 +37,8 @@ const CreatePost = ({ open, setOpen }) => {
     if (imagePreview) formData.append("image", file);
     try {
       setLoading(true);
-      const res = await axiosInstance.post(
-        "/post/addpost",
+      const res = await axios.post(
+        "https://insta-clone-by-ankur-backend.vercel.app/api/v1/post/addpost",
         formData,
         {
           headers: {
