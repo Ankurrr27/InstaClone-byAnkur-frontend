@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { toast } from "sonner";
-import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser } from "../redux/authSlice";
@@ -30,7 +30,7 @@ const LeftSidebar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/v1/user/logout", {
+      const res = await axiosInstance.get("/user/logout", {
         withCredentials: true,
       });
       if (res.data.success) {

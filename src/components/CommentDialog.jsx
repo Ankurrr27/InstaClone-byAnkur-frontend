@@ -6,7 +6,7 @@ import { MoreHorizontal } from "lucide-react";
 import { Button } from "./ui/button";
 import { useSelector, useDispatch } from "react-redux";
 import Comment from "./Comment";
-import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import { toast, Toaster } from "sonner";
 // import { setAllPosts } from "../redux/postSlice"; // make sure the path is correct
 
@@ -41,8 +41,8 @@ const CommentDialog = ({ open, setOpen }) => {
     }
 
     try {
-      const res = await axios.post(
-        `http://localhost:8000/api/v1/post/${selectedPost._id}/comment`,
+      const res = await axiosInstance.post(
+        `post/${selectedPost._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },

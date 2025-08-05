@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import CommentDialog from "./CommentDialog";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import { toast } from "sonner";
 import { setPosts, setSelectedPost } from "@/redux/postSlice";
 import { Badge } from "./ui/badge";
@@ -34,8 +34,8 @@ const Post = ({ post }) => {
   const likeOrDislikeHandler = async () => {
     try {
       const action = liked ? "dislike" : "like";
-      const res = await axios.get(
-        `http://localhost:8000/api/v1/post/${post._id}/${action}`,
+      const res = await axiosInstance.get(
+        `/post/${post._id}/${action}`,
         { withCredentials: true }
       );
 
@@ -64,8 +64,8 @@ const Post = ({ post }) => {
 
   const commentHandler = async () => {
     try {
-      const res = await axios.post(
-        `http://localhost:8000/api/v1/post/${post._id}/comment`,
+      const res = await axiosInstance.post(
+        `/post/${post._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
@@ -93,8 +93,8 @@ const Post = ({ post }) => {
 
   const deletePostHandler = async () => {
     try {
-      const res = await axios.delete(
-        `http://localhost:8000/api/v1/post/delete/${post?._id}`,
+      const res = await axiosInstance.delete(
+        `/post/delete/${post?._id}`,
         { withCredentials: true }
       );
 

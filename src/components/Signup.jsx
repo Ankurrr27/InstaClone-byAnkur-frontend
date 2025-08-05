@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
@@ -26,8 +26,8 @@ const Signup = () => {
     console.log(input);
     try {
       setLoading(true);
-      const res = await axios.post(
-        "http://localhost:8000/api/v1/user/register",
+      const res = await axiosInstance.post(
+        "/user/register",
         input,
         {
           headers: {
