@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { toast } from "sonner";
-import axiosInstance from "@/lib/axiosInstance";
+// import axiosInstance from "@/lib/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser } from "../redux/authSlice";
@@ -20,6 +20,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
 import { selectLikeNotifications } from "@/redux/selectors/notificationSelectors";
 import { FaInstagram } from "react-icons/fa";
+import axios from "axios";
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const LeftSidebar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axiosInstance.get("/user/logout", {
+      const res = await axios.get("https://insta-clone-by-ankur-backend.vercel.app/api/v1/user/logout", {
         withCredentials: true,
       });
       if (res.data.success) {
