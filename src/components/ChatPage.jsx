@@ -8,6 +8,7 @@ import { MessageCircleCode } from "lucide-react";
 import Messages from "./Messages";
 import axiosInstance from "@/lib/axiosInstance";
 import { setMessages } from "@/redux/chatSlice";
+import axios from "axios";
 
 
 
@@ -21,8 +22,8 @@ const ChatPage = () => {
 
   const sendMessageHandler = async (receiverId) => {
     try {
-      const res = await axiosInstance.post(
-        `/message/send/${receiverId}`,
+      const res = await axios.post(
+        `https://insta-clone-by-ankur-backend.vercel.app/api/v1/message/send/${receiverId}`,
         { textMessage },
         {
           headers: {

@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom"; // Routing + navigation
 import { Loader2 } from "lucide-react"; // Loading spinner icon
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser } from "@/redux/authSlice";
+import axios from "axios";
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -27,8 +28,8 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axiosInstance.post(
-        "/user/login",
+      const res = await axios.post(
+        "https://insta-clone-by-ankur-backend.vercel.app/api/v1/user/login",
         input,
         {
           headers: {

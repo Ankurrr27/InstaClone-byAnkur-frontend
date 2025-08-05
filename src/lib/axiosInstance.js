@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-  withCredentials: true, // for cookies/session
+  baseURL: import.meta.env.VITE_API_BASE_URL, // must point to backend
+  withCredentials: true,
 });
 
 export default axiosInstance;

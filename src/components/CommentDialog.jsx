@@ -42,7 +42,7 @@ const CommentDialog = ({ open, setOpen }) => {
 
     try {
       const res = await axiosInstance.post(
-        `post/${selectedPost._id}/comment`,
+        `/post/${selectedPost._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
