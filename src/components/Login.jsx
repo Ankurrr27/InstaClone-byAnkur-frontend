@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"; // Core React + state hook
 import { Input } from "./ui/input"; // Your custom styled input
 import { Button } from "./ui/button"; // Your custom styled button
-import axiosInstance from "@/lib/axiosInstance";
+// import axiosInstance from "@/lib/axiosInstance";
 import { toast } from "sonner"; // Toast notifications
 import { Link, useNavigate } from "react-router-dom"; // Routing + navigation
 import { Loader2 } from "lucide-react"; // Loading spinner icon
@@ -57,9 +57,9 @@ const Login = () => {
 
   useEffect(()=>{
     if(user){
-      navigate
+      navigate("/");
     }
-  },[])
+  },[user]);
 
   return (
     <div className="flex justify-center  items-center w-screen h-screen">
