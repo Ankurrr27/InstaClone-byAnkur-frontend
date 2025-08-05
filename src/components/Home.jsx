@@ -8,6 +8,7 @@ import useGetSuggestedUsers from '@/hooks/useGetSuggestedUsers'
 const Home = () => {
     useGetAllPost();
     useGetSuggestedUsers();
+  
     return (
         <div className='flex'>
             
