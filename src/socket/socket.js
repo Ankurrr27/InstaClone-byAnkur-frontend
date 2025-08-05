@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 let socket = null;
 
 export const connectSocket = (userId) => {
-  socket = io("https://insta-clone-by-ankur-backend.vercel.app", {
+  socket = io("https://instaclone-byankur-backend.onrender.com/", {
     query: { userId },
     withCredentials: true,
   });
