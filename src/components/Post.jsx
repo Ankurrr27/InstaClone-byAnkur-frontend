@@ -64,8 +64,8 @@ const Post = ({ post }) => {
 
   const commentHandler = async () => {
     try {
-      const res = await axiosInstance.post(
-        `/post/${post._id}/comment`,
+      const res = await axios.post(
+        `https://instaclone-byankur-backend.onrender.com/post/${post._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
