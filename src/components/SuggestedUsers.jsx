@@ -11,10 +11,10 @@ const SuggestedUsers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (suggestedUsers.length >= 0) {
-      setLoading(false);
-    }
-  }, [suggestedUsers]);
+  if (suggestedUsers.length > 0 || Array.isArray(suggestedUsers)) {
+    setLoading(false);
+  }
+}, [suggestedUsers]);
 
   return (
     <div className='my-10 '>

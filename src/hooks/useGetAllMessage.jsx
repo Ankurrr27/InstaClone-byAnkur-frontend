@@ -9,6 +9,7 @@ const useGetAllMessage = () => {
     const {selectedUser} = useSelector(store=>store.auth);
     useEffect(() => {
         const fetchAllMessage = async () => {
+            if (!selectedUser?._id) return;
             try {
                const res = await axios.get(`https://instaclone-byankur-backend.onrender.com/api/v1/message/all/${selectedUser?._id}`, { withCredentials: true });
 
