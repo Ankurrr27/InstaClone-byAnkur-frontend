@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import axiosInstance from "@/lib/axiosInstance";
+import axios from "axios";
+
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
@@ -26,8 +27,8 @@ const Signup = () => {
     console.log(input);
     try {
       setLoading(true);
-      const res = await axiosInstance.post(
-        "/user/register",
+      const res = await axios.post(
+        "https://insta-clone-by-ankur-backend.vercel.app/api/v1/user/register",
         input,
         {
           headers: {
