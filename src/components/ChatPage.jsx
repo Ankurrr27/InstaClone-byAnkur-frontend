@@ -7,7 +7,8 @@ import { Button } from "./ui/button";
 import { MessageCircleCode } from "lucide-react";
 import Messages from "./Messages";
 import { setMessages } from "@/redux/chatSlice";
-import axios from "axios";
+
+import axiosInstance from "@/lib/axiosInstance";
 
 
 
@@ -21,14 +22,14 @@ const ChatPage = () => {
 
   const sendMessageHandler = async (receiverId) => {
     try {
-      const res = await axios.post(
-        `https://instaclone-byankur-backend.onrender.com/api/v1/message/send/${receiverId}`,
+      const res = await axiosInstance.post(
+        `/api/v1/message/send/${receiverId}`,
         { textMessage },
         {
           headers: {
             "Content-Type": "application/json",
           },
-          withCredentials: true,
+         
         }
       );
       if (res.data.success) {

@@ -4,11 +4,12 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import axios from 'axios';
+
 import { Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { setAuthUser } from '@/redux/authSlice';
+import axiosInstance from '@/lib/axiosInstance';
 
 const EditProfile = () => {
     const imageRef = useRef();
@@ -42,7 +43,7 @@ const EditProfile = () => {
         }
         try {
             setLoading(true);
-            const res = await axios.post('https://instaclone-byankur-backend.onrender.com/user/profile/edit', formData,{
+            const res = await axiosInstance.post('/api/v1/user/profile/edit', formData,{
                 headers:{
                     'Content-Type':'multipart/form-data'
                 },
