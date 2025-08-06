@@ -11,7 +11,7 @@ const RightSidebar = () => {
   if (location.pathname.startsWith("/chat")) return null;
 
   return (
-    <div className='border-l-[1px] pl-6 border-gray-300 w-80 fixed right-0 top-0 h-full overflow-y-auto'>
+    <div className='border-l-[1px] pl-6 border-gray-300 w-80 right-0 top-0 h-full overflow-y-auto'>
       <div className='w-80 my-10 pr-20'>
         <div className='flex items-center gap-2'>
           <Link to={`/profile/${user?._id}`}>
