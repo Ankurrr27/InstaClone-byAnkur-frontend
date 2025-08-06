@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import CommentDialog from "./CommentDialog";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import { toast } from "sonner";
 import { setPosts, setSelectedPost } from "@/redux/postSlice";
 import { Badge } from "./ui/badge";
@@ -34,9 +34,9 @@ const Post = ({ post }) => {
   const likeOrDislikeHandler = async () => {
     try {
       const action = liked ? "dislike" : "like";
-      const res = await axios.get(
-        `https://instaclone-byankur-backend.onrender.com/post/${post._id}/${action}`,
-        { withCredentials: true }
+      const res = await axiosInstance.get(
+        `/post/${post._id}/${action}`,
+        
       );
 
       if (res.data.success) {
@@ -64,12 +64,12 @@ const Post = ({ post }) => {
 
   const commentHandler = async () => {
     try {
-      const res = await axios.post(
-        `https://instaclone-byankur-backend.onrender.com/post/${post._id}/comment`,
+      const res = await axiosInstance.post(
+        `/post/${post._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
+         
         }
       );
       console.log(res.data);
@@ -93,9 +93,9 @@ const Post = ({ post }) => {
 
   const deletePostHandler = async () => {
     try {
-      const res = await axios.delete(
-        `https://insta-clone-by-ankur-backend.vercel.app/api/v1/post/delete/${post?._id}`,
-        { withCredentials: true }
+      const res = await axiosInstance.delete(
+        `/post/delete/${post?._id}`,
+        
       );
 
       if (res.data.success) {
