@@ -10,12 +10,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    proxy: {
-      '/socket.io': {
-        target: 'http://localhost:8000', // your backend server
-        ws: true, // enable websocket proxying
-      },
-    },
-  },
+ 
 })
