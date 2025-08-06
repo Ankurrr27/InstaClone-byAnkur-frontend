@@ -47,7 +47,7 @@ const CommentDialog = ({ open, setOpen }) => {
         { text },
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
+         
         }
       );
 
