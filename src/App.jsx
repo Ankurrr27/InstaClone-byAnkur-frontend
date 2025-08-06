@@ -62,10 +62,10 @@ function App() {
   useEffect(() => {
     if (user) {
       const socketio = io(import.meta.env.VITE_API_BASE_URL, {
-        query: {
-          userId: user?._id,
+        query: { userId: user?._id,
         },
         transports: ["websocket"],
+        withCredentials:true,
       });
    
   setSocket(socketio);
