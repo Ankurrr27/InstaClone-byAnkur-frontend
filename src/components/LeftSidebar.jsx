@@ -34,9 +34,7 @@ const LeftSidebar = () => {
     try {
       const res = await axiosInstance.get(
         "/api/v1/user/logout",
-        {
-          withCredentials: true,
-        }
+        
       );
       if (res.data.success) {
         dispatch(setAuthUser(null));
