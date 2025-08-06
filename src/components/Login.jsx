@@ -66,7 +66,7 @@ const Login = () => {
     <div className="flex justify-center  items-center w-screen h-screen">
       <form
         onSubmit={signupHandler}
-        className="shadow-lg flex flex-col gap-5 p-8"
+        className="shadow-lg flex flex-col gap-4 p-8"
       >
         <div className="my-4">
           <div className="flex flex-col items-center mt-10 px-4">
