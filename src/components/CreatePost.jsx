@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "@/redux/postSlice";
 import axiosInstance from "@/lib/axiosInstance";
+import axios from "axios";
 
 
 const CreatePost = ({ open, setOpen }) => {
@@ -38,8 +39,8 @@ const CreatePost = ({ open, setOpen }) => {
     if (imagePreview) formData.append("image", file);
     try {
       setLoading(true);
-      const res = await axiosInstance.post(
-        "/api/v1/post/addpost",
+      const res = await axios.post(
+        "https://instaclone-byankur-backend.onrender.com/api/v1/post/addpost",
         formData,
         {
           headers: {
