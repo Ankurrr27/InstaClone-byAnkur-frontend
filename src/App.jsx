@@ -61,7 +61,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io(import.meta.env.VITE_BACKEND_URL, {
+      const socketio = io(import.meta.env.VITE_API_BASE_URL, {
         query: {
           userId: user?._id,
         },
