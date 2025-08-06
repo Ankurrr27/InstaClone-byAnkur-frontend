@@ -5,7 +5,7 @@ let socket = null;
 
 export const connectSocket = (userId) => {
   socket = io("https://instaclone-byankur-backend.onrender.com", {
-    query: { userId : userId._id },
+    query: { userId  },
     withCredentials: true,
    
     transports:["websocket"]
