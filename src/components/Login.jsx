@@ -16,7 +16,7 @@ const Login = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  const {user} = useSelector(store=>store.auth)
+  const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const changeEventHandler = (e) => {
@@ -55,11 +55,11 @@ const Login = () => {
     }
   };
 
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       navigate("/");
     }
-  },[user]);
+  }, [user]);
 
   return (
     <div className="flex justify-center  items-center w-screen h-screen">
@@ -68,7 +68,20 @@ const Login = () => {
         className="shadow-lg flex flex-col gap-5 p-8"
       >
         <div className="my-4">
-          <h1 className="text-center font-bold text-xl">LOGO</h1>
+          <div className="flex flex-col items-center mt-10 px-4">
+            <div className="flex items-center gap-1.5">
+              <span className="text-3xl">
+                <FaInstagram />
+              </span>
+              <span className="font-bold text-2xl tracking-wide bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">
+                InstaClone
+              </span>
+            </div>
+            <p className="mt-2 font-serif text-sm bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">
+              by Ankur
+            </p>
+          </div>
+
           <p className="text-sm text-center">
             Signup to see photos and videos from your friends
           </p>
