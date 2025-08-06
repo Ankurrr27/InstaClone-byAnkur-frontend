@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Comment from "./Comment";
 
 import { toast, Toaster } from "sonner";
-import axiosInstance from "@/lib/axiosInstance";
+
 import axios from "axios";
 // import { setAllPosts } from "../redux/postSlice"; // make sure the path is correct
 
@@ -44,7 +44,7 @@ const CommentDialog = ({ open, setOpen }) => {
 
     try {
       const res = await axios.post(
-        `https://instaclone-byankur-backend.onrender.com/api/v1/post/${selectedPost._id}/comment`,
+        `https://instaclone-byankur-backend.onrender.com/api/v1/post/${selectedPost._id}/comment/`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
