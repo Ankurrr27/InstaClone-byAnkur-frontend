@@ -90,7 +90,7 @@ const LeftSidebar = () => {
   return (
     <div className="fixed top-0 z-10 left-0 px-4 border-r border-gray-300 w-[16%] h-screen">
       <div className="flex flex-col">
-        <div className="flex flex-col items-center mt-10 px-4 mb-20">
+        <div className="flex flex-col items-center mt-10 px-4 pb-20">
           <div className="flex items-center gap-1.5">
             <span className="text-3xl">
               <FaInstagram />
