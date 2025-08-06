@@ -1,5 +1,5 @@
 import { setSuggestedUsers } from "@/redux/authSlice";
-import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
@@ -9,25 +9,23 @@ const useGetSuggestedUsers = () => {
   useEffect(() => {
     const fetchSuggestedUsers = async () => {
       try {
-        const res = await axios.get("https://instaclone-byankur-backend.onrender.com/api/v1/user/suggestedUser", {
-          withCredentials: true,
-        });
+        const res = await axiosInstance.get("/user/suggestedUser");
 
-        console.log(" API response:", res.data); 
+        console.log("API response:", res.data); 
 
         if (res.data.success && Array.isArray(res.data.users)) {
-          console.log(" Dispatching users:", res.data.users);
+          console.log("Dispatching users:", res.data.users);
           dispatch(setSuggestedUsers(res.data.users));
         } else {
-          console.warn(" API returned success = false or users not an array");
+          console.warn("API returned success = false or users not an array");
         }
       } catch (error) {
-        console.error(" Axios fetch failed:", error);
+        console.error("Axios fetch failed:", error);
       }
     };
 
     fetchSuggestedUsers();
-  }, [dispatch]); 
+  }, [dispatch]);
 };
 
 export default useGetSuggestedUsers;
