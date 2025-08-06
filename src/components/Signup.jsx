@@ -7,6 +7,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 // import { LogIn } from "lucide-react";
 
 const Signup = () => {
