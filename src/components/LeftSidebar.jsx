@@ -20,8 +20,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
 import { selectLikeNotifications } from "@/redux/selectors/notificationSelectors";
 import { FaInstagram } from "react-icons/fa";
-
 import axiosInstance from "@/lib/axiosInstance";
+import axios from "axios";
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
@@ -32,8 +32,8 @@ const LeftSidebar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axiosInstance.get(
-        "/api/v1/user/logout",
+      const res = await axios.get(
+        "https://instaclone-byankur-backend.onrender.com/api/v1/user/logout",
         
       );
       if (res.data.success) {
