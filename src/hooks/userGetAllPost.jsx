@@ -1,26 +1,27 @@
 import { setPosts } from "@/redux/postSlice";
-import axiosInstance from "@/lib/axiosInstance"; // ✅ using custom axios
+import axiosInstance from "@/lib/axiosInstance";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 const useGetAllPost = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchAllPost = async () => {
-      try {
-        const res = await axiosInstance.get("/post/all"); // ✅ no full URL
-        if (res.data.success) {
-          console.log("Fetched posts:", res.data.posts); // ✅ only after res
-          dispatch(setPosts(res.data.posts));
-        }
-      } catch (error) {
-        console.error("Failed to fetch posts:", error.message);
+  const fetchAllPost = async () => {
+    try {
+      const res = await axiosInstance.get("/post/all");
+      if (res.data.success) {
+        dispatch(setPosts(res.data.posts));
       }
-    };
+    } catch (error) {
+      console.error("Failed to fetch posts:", error.message);
+    }
+  };
 
+  useEffect(() => {
     fetchAllPost();
   }, [dispatch]);
+
+  return { fetchAllPost }; // <- this is the key
 };
 
 export default useGetAllPost;
