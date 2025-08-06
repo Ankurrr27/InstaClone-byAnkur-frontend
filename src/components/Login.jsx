@@ -83,8 +83,8 @@ const Login = () => {
             </p>
           </div>
 
-          <p className="text-sm text-center">
-            Signup to see photos and videos from your friends
+          <p className="text-xs text-center text-gray-600 font-serif">
+            Login to see photos and videos from your friends
           </p>
         </div>
 
