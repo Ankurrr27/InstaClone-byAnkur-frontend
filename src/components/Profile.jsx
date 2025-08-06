@@ -104,9 +104,7 @@ const Profile = () => {
                   <AtSign />{" "}
                   <span className="pl-1">{userProfile?.username}</span>
                 </Badge>
-                <span>🎓 IIITian vibin’ through code & community</span>
-                <span>🌐 Catch me online — GitHub, IG, and more</span>
-                <span>💻 Full Stack Web Dev developer</span>
+               
               </div>
             </div>
           </section>
