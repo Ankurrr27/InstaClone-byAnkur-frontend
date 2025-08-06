@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { setAuthUser } from '@/redux/authSlice';
 import axiosInstance from '@/lib/axiosInstance';
+import axios from 'axios';
 
 const EditProfile = () => {
     const imageRef = useRef();
@@ -43,7 +44,7 @@ const EditProfile = () => {
         }
         try {
             setLoading(true);
-            const res = await axiosInstance.post('/api/v1/user/profile/edit', formData,{
+            const res = await axios.post('https://instaclone-byankur-backend.onrender.com/api/v1/user/profile/edit', formData,{
                 headers:{
                     'Content-Type':'multipart/form-data'
                 },

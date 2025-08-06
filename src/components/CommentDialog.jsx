@@ -9,6 +9,7 @@ import Comment from "./Comment";
 
 import { toast, Toaster } from "sonner";
 import axiosInstance from "@/lib/axiosInstance";
+import axios from "axios";
 // import { setAllPosts } from "../redux/postSlice"; // make sure the path is correct
 
 // import { send } from "vite";
@@ -42,11 +43,12 @@ const CommentDialog = ({ open, setOpen }) => {
     }
 
     try {
-      const res = await axiosInstance.post(
-        `/api/v1/post/${selectedPost._id}/comment`,
+      const res = await axios.post(
+        `https://instaclone-byankur-backend.onrender.com/api/v1/post/${selectedPost._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
+          withCredentials:true
         }
       );
 
