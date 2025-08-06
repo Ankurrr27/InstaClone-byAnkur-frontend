@@ -11,7 +11,7 @@ const Home = () => {
     return (
         <div className='flex'>
             
-            <div >
+            <div className='flex-grow'>
                 <Feed />
                 <Outlet />
             </div>
