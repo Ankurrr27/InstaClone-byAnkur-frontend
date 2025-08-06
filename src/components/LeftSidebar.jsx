@@ -31,9 +31,12 @@ const LeftSidebar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get("https://instaclone-byankur-backend.onrender.com/api/v1/user/logout", {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://instaclone-byankur-backend.onrender.com/api/v1/user/logout",
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         dispatch(setAuthUser(null));
         dispatch(setSelectedPost(null));
@@ -87,17 +90,19 @@ const LeftSidebar = () => {
   return (
     <div className="fixed top-0 z-10 left-0 px-4 border-r border-gray-300 w-[16%] h-screen">
       <div className="flex flex-col">
-        <div className="flex items-center mt-10 px-4">
-          <span className="text-3xl pr-1.5">
-            <FaInstagram />
-          </span>
-          <span className="font-bold text-2xl tracking-wide bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">
-            InstaClone
-          </span>
+        <div className="flex flex-col items-center mt-10 px-4">
+          <div className="flex items-center gap-1.5">
+            <span className="text-3xl">
+              <FaInstagram />
+            </span>
+            <span className="font-bold text-2xl tracking-wide bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">
+              InstaClone
+            </span>
+          </div>
+          <p className="mt-2 font-serif text-sm bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">
+            by Ankur
+          </p>
         </div>
-        <p className="mb-6 pl-4 font-serif text-sm bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">
-          by Ankur
-        </p>
 
         <div>
           {sidebarItems.map((item, index) => {
