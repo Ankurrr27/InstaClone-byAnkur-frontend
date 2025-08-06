@@ -5,8 +5,7 @@ let socket = null;
 
 export const connectSocket = (userId) => {
   socket = io("https://instaclone-byankur-backend.onrender.com", {
-    query: { userId },
-
+    query: { userId : userId._id },
     withCredentials: true,
     reconnectionAttempts: 5, 
     reconnectionDelay: 1000, 
