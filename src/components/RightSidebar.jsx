@@ -6,6 +6,8 @@ import SuggestedUsers from './SuggestedUsers';
 
 const RightSidebar = () => {
   const { user } = useSelector(store => store.auth);
+   if (location.pathname.startsWith("/profile")) return null;
+
   return (
   <div className='border-l-[1px] pl-6 border-gray-300 w-80 fixed right-0 top-0 h-full overflow-hidden'>
     <div className=' w-80 my-10 pr-20 '>
