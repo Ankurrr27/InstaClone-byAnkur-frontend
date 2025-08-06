@@ -6,14 +6,9 @@ import SuggestedUsers from './SuggestedUsers';
 
 const RightSidebar = () => {
   const { user } = useSelector(store => store.auth);
-
- if (
-  location.pathname.startsWith("/profile") ||
-  location.pathname === "/chat" ||
-  location.pathname === "/edit-profile"
-) return null;
-
   
+   if (location.pathname.startsWith("/profile")) return null;
+   else if (location.pathname.startsWith("/chat")) return null;
 
 
   return (
