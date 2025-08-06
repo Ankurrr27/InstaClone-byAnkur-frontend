@@ -35,7 +35,7 @@ const Post = ({ post }) => {
     try {
       const action = liked ? "dislike" : "like";
       const res = await axiosInstance.get(
-        `/post/${post._id}/${action}`,
+        `/api/v1/post/${post._id}/${action}`,
         
       );
 
@@ -65,7 +65,7 @@ const Post = ({ post }) => {
   const commentHandler = async () => {
     try {
       const res = await axiosInstance.post(
-        `/post/${post._id}/comment`,
+        `api/v1/post/${post._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
@@ -94,7 +94,7 @@ const Post = ({ post }) => {
   const deletePostHandler = async () => {
     try {
       const res = await axiosInstance.delete(
-        `/post/delete/${post?._id}`,
+        `api/v1/post/delete/${post?._id}`,
         
       );
 
