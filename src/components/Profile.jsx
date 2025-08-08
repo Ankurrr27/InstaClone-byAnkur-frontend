@@ -25,7 +25,7 @@ const Profile = () => {
 
   return (
     <div className="flex max-w-5xl justify-center mx-auto  pl-20">
-      <div className="flex flex-col gap-20 p-8">
+      <div className="flex flex-col gap-20 pr-8">
         <div className="grid grid-cols-2">
           <section className="flex items-center justify-center">
             <Avatar className="h-50 w-50">
